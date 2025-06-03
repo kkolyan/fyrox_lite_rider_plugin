@@ -9,7 +9,23 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.kkolyan.fyroxliteriderplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.kkolyan.fyroxliteriderplugin.startup.MyProjectActivity" />
+        <postStartupActivity implementation="com.github.kkolyan.fyroxliteriderplugin.MyProjectActivity" />
+        <codeInsight.lineMarkerProvider language="C#" implementationClass="com.github.kkolyan.fyroxliteriderplugin.FyroxLineMarkerProvider"/>
     </extensions>
+    <actions>
+        <action id="NodeScriptClassAction"
+                class="com.github.kkolyan.fyroxliteriderplugin.CreateNodeScriptAction"
+                text="NodeScript Class"
+                description="Creates a NodeScript class"
+                icon="/icons/fyrox_16.png">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+        <action id="GlobalScriptAction"
+                class="com.github.kkolyan.fyroxliteriderplugin.CreateGlobalScriptAction"
+                text="GlobalScript Class"
+                description="Creates a GlobalScript class"
+                icon="/icons/fyrox_16.png">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
