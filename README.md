@@ -18,7 +18,7 @@
 
 <!-- Plugin description -->
 Enhances JetBrains Rider with [Fyrox Lite / C#](https://github.com/kkolyan/fyrox_lite) support:
-1. Helps to create Fyrox C# scripts with proper UUID generation by new items in "Add..." context menu.
+1. Helps to create Fyrox C# scripts with proper UUID generation by new items in context menu.
 
 ![add_menu_items.png](https://github.com/kkolyan/fyrox_lite_rider_plugin/blob/9ad5f855b8fb879fe4277734c225e9cf792a1a2c/add_menu_items.png?raw=true)
 2. Use markers to highlight fields used by engine
