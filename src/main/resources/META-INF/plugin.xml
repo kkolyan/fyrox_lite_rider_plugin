@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.kkolyan.fyroxliteriderplugin</id>
-    <name>fyrox_lite_rider_plugin</name>
+    <id>com.github.kkolyan.fyroxlite</id>
+    <name>FyroxLite</name>
     <vendor>kkolyan</vendor>
 
     <depends>com.intellij.modules.platform</depends>
