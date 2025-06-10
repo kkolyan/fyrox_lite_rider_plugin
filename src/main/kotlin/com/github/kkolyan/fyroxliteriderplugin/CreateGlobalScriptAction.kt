@@ -10,14 +10,14 @@ import com.intellij.psi.PsiElement
 import java.util.*
 
 class CreateGlobalScriptAction : CreateFromTemplateAction<PsiElement>(
-    "Fyrox Global Script",
-    "Creates a new Fyrox Global Script",
+    "Fyrox C# Global Script",
+    "Creates a new Fyrox C# Global Script",
     MyIcons.Fyrox
 ) {
 
     override fun buildDialog(project: Project, directory: PsiDirectory, builder: CreateFileFromTemplateDialog.Builder) {
-        builder.setTitle("New Fyrox Global Script")
-            .addKind("Fyrox Global Script", MyIcons.Fyrox, "GlobalScript.cs")
+        builder.setTitle("New Fyrox C# Global Script")
+            .addKind("Fyrox C# Global Script", MyIcons.Fyrox, "GlobalScript.cs")
     }
 
     override fun getActionName(directory: PsiDirectory, newName: String, templateName: String): String =

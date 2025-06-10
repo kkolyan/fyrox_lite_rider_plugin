@@ -10,14 +10,14 @@ import com.intellij.psi.PsiElement
 import java.util.*
 
 class CreateNodeScriptAction : CreateFromTemplateAction<PsiElement>(
-    "Fyrox Node Script",
-    "Creates a new Fyrox Node Script",
+    "Fyrox C# Node Script",
+    "Creates a new Fyrox C# Node Script",
     MyIcons.Fyrox
 ) {
 
     override fun buildDialog(project: Project, directory: PsiDirectory, builder: CreateFileFromTemplateDialog.Builder) {
-        builder.setTitle("New Fyrox Node Script")
-            .addKind("Fyrox Node Script", MyIcons.Fyrox, "NodeScript.cs")
+        builder.setTitle("New Fyrox C# Node Script")
+            .addKind("Fyrox C# Node Script", MyIcons.Fyrox, "NodeScript.cs")
     }
 
     override fun getActionName(directory: PsiDirectory, newName: String, templateName: String): String =
