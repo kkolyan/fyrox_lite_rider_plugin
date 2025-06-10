@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.kkolyan.fyroxlite</id>
     <name>FyroxLite</name>
-    <vendor>kkolyan</vendor>
+    <vendor>Nikolay Plekhanov</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
