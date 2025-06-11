@@ -60,33 +60,53 @@ class FyroxLineMarkerProvider : LineMarkerProvider {
         when (scriptType?.type) {
             ScriptType.Node -> return LineMarkerInfo(
                 scriptInstance!!,
-                scriptInstance!!.textRange,
-                MyIcons.Fyrox,
-                { "Node script" },
+                scriptInstance.textRange,
+                MyIcons.FyroxBacked,
+                { "Node script ${scriptInstance.text}" },
                 null,
-                GutterIconRenderer.Alignment.LEFT
+                GutterIconRenderer.Alignment.LEFT,
+                { "Node script ${scriptInstance.text}" }
             )
             ScriptType.Global -> return LineMarkerInfo(
                 scriptInstance!!,
-                scriptInstance!!.textRange,
-                MyIcons.Fyrox,
-                { "Global script" },
+                scriptInstance.textRange,
+                MyIcons.FyroxBacked,
+                { "Global script ${scriptInstance.text}" },
                 null,
-                GutterIconRenderer.Alignment.LEFT
+                GutterIconRenderer.Alignment.LEFT,
+                { "Global script ${scriptInstance.text}" },
             )
             null -> {}
         }
         if (element is CSharpFieldDeclaration) {
+
             val isNotTransient =
                 element.children.none { it is CSharpDummyDeclaration && it.text == "[Transient]" && it.elementType.toString() == "cs:attribute-declaration" }
+
             if (isNotTransient && resolveScriptType(element.parent.parent) != null) {
+                val isVisibleInInspector =
+                    element.children.none { it is CSharpDummyDeclaration && it.text == "[HideInInspector]" && it.elementType.toString() == "cs:attribute-declaration" }
+
                 return LineMarkerInfo(
                     element,
                     element.textRange,
-                    MyIcons.Fyrox,
-                    { "Field is persisted by the engine" },
+                    if (isVisibleInInspector) MyIcons.Fyrox else MyIcons.FyroxPale,
+                    {
+                        if (isVisibleInInspector) {
+                            "Stored in scene or resource files. Editable in Inspector."
+                        } else {
+                            "Stored in scene or resource files, but is not visible in Inspector."
+                        }
+                    },
                     null,
-                    GutterIconRenderer.Alignment.LEFT
+                    GutterIconRenderer.Alignment.LEFT,
+                    {
+                        if (isVisibleInInspector) {
+                            "Field ${element.name} can be stored in scene or resource files. Can be edited in Inspector."
+                        } else {
+                            "Field ${element.name} can be stored in scene or resource files, but can't be edited in Inspector."
+                        }
+                    }
                 )
             }
         }
